@@ -26,11 +26,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "AframeDemo",
     component: () => import("../views/demo/AframeDemo.vue"),
   },
-  // {
-  //   path: "/home/highchartsdemo",
-  //   name: "HighchartsDemo",
-  //   component: () => import("../views/demo/HighchartsDemo.vue"),
-  // },
+  {
+    path: "/home/highchartsdemo",
+    name: "HighchartsDemo",
+    component: () => import("../views/demo/HighchartsDemo.vue"),
+  },
 ];
 
 const router = createRouter({

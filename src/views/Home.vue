@@ -21,15 +21,20 @@
 import { defineComponent, reactive, toRefs, onMounted } from "vue";
 import Header from "@/components/Header.vue";
 import { Sticky, Grid, GridItem } from "vant";
+interface menuItem {
+  route: string;
+  name: string;
+  icon: string;
+}
 export default defineComponent({
   name: "Home",
   components: { Header, Sticky, Grid, GridItem },
   setup() {
-    const state = reactive({
+    const state: any = reactive({
       menuList: [],
     });
     onMounted(async () => {
-      let menu: any = [
+      let menu: Array<menuItem> = [
         { route: "/home/vuexdemo", name: "VuexDemo", icon: "tv-o" },
         {
           route: "/home/pannellumdemo",
