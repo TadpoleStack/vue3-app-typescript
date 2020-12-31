@@ -22,7 +22,7 @@ export default defineComponent({
   name: "PannellumDemo",
   setup() {
     const router = useRouter();
-    const pannellum = (window as any).pannellum
+    const pannellum = (window as any).pannellum;
     const initPannellum = () => {
       pannellum.viewer("panorama", {
         type: "equirectangular",

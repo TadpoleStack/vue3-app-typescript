@@ -31,6 +31,9 @@ export default defineComponent({
   name: "AframeDemo",
   setup() {
     const router = useRouter();
+    onMounted(()=>{
+      console.info(Aframe)
+    })
     return {
       router,
     };
