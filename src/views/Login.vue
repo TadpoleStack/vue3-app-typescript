@@ -37,6 +37,11 @@ import { useRouter } from "vue-router";
 export default defineComponent({
   name: "Login",
   setup() {
+    interface form {
+      username: string;
+      password: string;
+      verifycode?: string;
+    }
     const router = useRouter();
     const state = reactive({
       form: {
@@ -44,7 +49,7 @@ export default defineComponent({
         password: "",
       },
     });
-    const onSubmit = (form: any) => {
+    const onSubmit = (form: form) => {
       console.info("form", form);
       router.replace("/home");
     };

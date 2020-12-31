@@ -40,6 +40,11 @@ export default defineComponent({
           name: "AframeDemo",
           icon: "envelop-o",
         },
+        {
+          route: "/home/highchartsdemo",
+          name: "HighchartsDemo",
+          icon: "envelop-o",
+        },
       ];
       state.menuList = menu;
     });
