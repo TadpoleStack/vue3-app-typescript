@@ -1,14 +1,14 @@
 <template>
   <div class="login-page">
-    <van-form @submit="onSubmit" :style="{ marginTop: '-100px' }">
-      <van-field
+    <Form @submit="onSubmit" :style="{ marginTop: '-100px' }">
+      <Field
         v-model="form.username"
         name="username"
         label="用户名"
         placeholder="请填写用户名"
         :rules="[{ required: true, message: '请填写用户名' }]"
       />
-      <van-field
+      <Field
         v-model="form.password"
         type="password"
         name="password"
@@ -17,25 +17,21 @@
         :rules="[{ required: true, message: '请填写密码' }]"
       />
       <div style="margin: 24px">
-        <van-button
-          round
-          block
-          size="small"
-          type="primary"
-          native-type="submit"
-        >
+        <Button round block size="small" type="primary" native-type="submit">
           提交
-        </van-button>
+        </Button>
       </div>
-    </van-form>
+    </Form>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from "vue";
 import { useRouter } from "vue-router";
+import { Form, Field, Button } from "vant";
 export default defineComponent({
   name: "Login",
+  components: { Form, Field, Button },
   setup() {
     interface form {
       username: string;

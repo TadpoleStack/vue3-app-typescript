@@ -1,18 +1,18 @@
 <template>
   <div class="home">
-    <van-sticky>
+    <Sticky>
       <Header></Header>
-    </van-sticky>
+    </Sticky>
     <div class="content">
-      <van-grid column-num="3" clickable>
-        <van-grid-item
+      <Grid column-num="3" clickable>
+        <GridItem
           v-for="item in menuList"
           :key="item.name"
           :icon="item.icon || 'photo-o'"
           :text="item.name"
           :to="item.route"
         />
-      </van-grid>
+      </Grid>
     </div>
   </div>
 </template>
@@ -20,9 +20,10 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs, onMounted } from "vue";
 import Header from "@/components/Header.vue";
+import { Sticky, Grid, GridItem } from "vant";
 export default defineComponent({
   name: "Home",
-  components: { Header },
+  components: { Header, Sticky, Grid, GridItem },
   setup() {
     const state = reactive({
       menuList: [],

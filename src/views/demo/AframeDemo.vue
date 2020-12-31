@@ -1,14 +1,14 @@
 <template>
   <div class="aframedemo">
-    <van-sticky>
-      <van-nav-bar
+    <Sticky>
+      <NavBar
         style="height: 50px"
         title="AframeDemo"
         left-text="返回"
         left-arrow
         @click-left="router.back()"
       />
-    </van-sticky>
+    </Sticky>
     <div class="aframe-box">
       <a-scene>
         <a-assets>
@@ -27,8 +27,10 @@
 import { defineComponent, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import Aframe from "aframe";
+import { Sticky, NavBar } from "vant";
 export default defineComponent({
   name: "AframeDemo",
+  components: { Sticky, NavBar },
   setup() {
     const router = useRouter();
     onMounted(() => {

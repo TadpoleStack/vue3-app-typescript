@@ -1,14 +1,14 @@
 <template>
   <div class="highcharts-demo">
-    <van-sticky>
-      <van-nav-bar
+    <Sticky>
+      <NavBar
         style="height: 50px"
         title="HighchartsDemo"
         left-text="返回"
         left-arrow
         @click-left="router.back()"
       />
-    </van-sticky>
+    </Sticky>
     <div id="container"></div>
   </div>
 </template>
@@ -16,9 +16,11 @@
 <script lang="ts">
 import { defineComponent, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import { Sticky, NavBar } from "vant";
 import * as Highcharts from "highcharts";
 export default defineComponent({
   name: "HighchartsDemo",
+  components: { Sticky, NavBar },
   setup() {
     const initCharts = (): void => {
       let chart = Highcharts.chart("container", {

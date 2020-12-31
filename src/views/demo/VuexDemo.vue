@@ -1,17 +1,17 @@
 <template>
   <div class="vuexdemo">
-    <van-sticky offset-top="1px">
-      <van-nav-bar
+    <Sticky offset-top="1px">
+      <NavBar
         title="VuexDemo"
         left-text="返回"
         left-arrow
         @click-left="router.back()"
       />
-    </van-sticky>
+    </Sticky>
     <p>Store count:{{ count }}</p>
-    <van-button @click="changeCount('1')">plus</van-button>
-    <van-button @click="changeCount('2')">minus</van-button>
-    <van-button @click="changeCount('0')">reset</van-button>
+    <Button @click="changeCount('1')">plus</Button>
+    <Button @click="changeCount('2')">minus</Button>
+    <Button @click="changeCount('0')">reset</Button>
   </div>
 </template>
 
@@ -20,8 +20,10 @@ import { defineComponent, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { key } from "@/store";
+import { Sticky, NavBar, Button } from 'vant';
 export default defineComponent({
   name: "VuexDemo",
+  components:{ Sticky, NavBar, Button },
   setup() {
     const router = useRouter();
     const store = useStore(key);
