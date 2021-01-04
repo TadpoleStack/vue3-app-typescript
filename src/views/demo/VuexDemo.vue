@@ -20,10 +20,10 @@ import { defineComponent, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { key } from "@/store";
-import { Sticky, NavBar, Button } from 'vant';
+import { Sticky, NavBar, Button } from "vant";
 export default defineComponent({
   name: "VuexDemo",
-  components:{ Sticky, NavBar, Button },
+  components: { Sticky, NavBar, Button },
   setup() {
     const router = useRouter();
     const store = useStore(key);

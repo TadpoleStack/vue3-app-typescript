@@ -1,25 +1,5 @@
-<template>
-  <div class="home">
-    <Sticky>
-      <Header></Header>
-    </Sticky>
-    <div class="content">
-      <Grid column-num="3" clickable>
-        <GridItem
-          v-for="item in menuList"
-          :key="item.name"
-          :icon="item.icon || 'photo-o'"
-          :text="item.name"
-          :to="item.route"
-        />
-      </Grid>
-    </div>
-  </div>
-</template>
-
-<script lang="ts">
 import { defineComponent, reactive, toRefs, onMounted } from "vue";
-import Header from "@/components/Header.vue";
+import Header from "@/components/Header/index";
 import { Sticky, Grid, GridItem } from "vant";
 interface menuItem {
   route: string;
@@ -34,7 +14,7 @@ export default defineComponent({
       menuList: [],
     });
     onMounted(async () => {
-      let menu: Array<menuItem> = [
+      const menu: Array<menuItem> = [
         { route: "/home/vuexdemo", name: "VuexDemo", icon: "tv-o" },
         {
           route: "/home/pannellumdemo",
@@ -58,12 +38,28 @@ export default defineComponent({
       ...toRefs(state),
     };
   },
+  render() {
+    const { menuList } = this;
+    return (
+      <div class="home">
+        <Sticky>
+          <Header></Header>
+        </Sticky>
+        <div class="content">
+          <Grid column-num="3" clickable>
+            {menuList.map((item: menuItem) => {
+              return (
+                <GridItem
+                  key={item.name}
+                  icon={item.icon || "photo-o"}
+                  text={item.name}
+                  to={item.route}
+                />
+              );
+            })}
+          </Grid>
+        </div>
+      </div>
+    );
+  },
 });
-</script>
-
-<style lang="scss" scoped>
-.home {
-  .content {
-  }
-}
-</style>

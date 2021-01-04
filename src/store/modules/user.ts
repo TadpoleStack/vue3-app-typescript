@@ -1,9 +1,13 @@
-const state = {
+interface userType {
+  count: number;
+}
+
+const state: userType = {
   count: 0,
 };
 
 const mutations = {
-  count: (state: any, data: number) => {
+  count: (state: userType, data: number): void => {
     state.count = data;
   },
 };
@@ -11,7 +15,7 @@ const mutations = {
 const actions = {};
 
 const getters = {
-  count: (state: any) => {
+  count: (state: userType): number => {
     return state.count;
   },
 };

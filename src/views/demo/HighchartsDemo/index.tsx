@@ -1,19 +1,3 @@
-<template>
-  <div class="highcharts-demo">
-    <Sticky>
-      <NavBar
-        style="height: 50px"
-        title="HighchartsDemo"
-        left-text="返回"
-        left-arrow
-        @click-left="router.back()"
-      />
-    </Sticky>
-    <div id="container"></div>
-  </div>
-</template>
-
-<script lang="ts">
 import { defineComponent, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { Sticky, NavBar } from "vant";
@@ -22,6 +6,7 @@ export default defineComponent({
   name: "HighchartsDemo",
   components: { Sticky, NavBar },
   setup() {
+    const router = useRouter();
     const initCharts = (): void => {
       // let chart = Highcharts.chart("container", {
       //   chart: {
@@ -48,18 +33,19 @@ export default defineComponent({
       console.info(Highcharts);
       initCharts();
     });
-    return {
-      router: useRouter(),
-    };
+    return () => (
+      <div class="highcharts-demo">
+        <Sticky>
+          <NavBar
+            style="height: 50px"
+            title="HighchartsDemo"
+            left-text="返回"
+            left-arrow
+            onClickLeft={router.back}
+          />
+        </Sticky>
+        <div id="container"></div>
+      </div>
+    );
   },
 });
-</script>
-
-<style lang="scss" scoped>
-.highcharts-demo {
-  #container {
-    width: 100%;
-    height: calc(100% - 50px);
-  }
-}
-</style>

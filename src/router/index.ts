@@ -4,32 +4,32 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Login",
-    component: () => import("../views/Login.vue"),
+    component: () => import("../views/Login/index"),
   },
   {
     path: "/home",
     name: "Home",
-    component: () => import("../views/Home.vue"),
+    component: () => import("../views/Home/index"),
   },
   {
     path: "/home/vuexdemo",
     name: "VuexDemo",
-    component: () => import("../views/demo/VuexDemo.vue"),
+    component: () => import("../views/demo/VuexDemo/index"),
   },
   {
     path: "/home/pannellumdemo",
     name: "PannellumDemo",
-    component: () => import("../views/demo/PannellumDemo.vue"),
+    component: () => import("../views/demo/PannellumDemo/index"),
   },
   {
     path: "/home/aframedemo",
     name: "AframeDemo",
-    component: () => import("../views/demo/AframeDemo.vue"),
+    component: () => import("../views/demo/AframeDemo/index"),
   },
   {
     path: "/home/highchartsdemo",
     name: "HighchartsDemo",
-    component: () => import("../views/demo/HighchartsDemo.vue"),
+    component: () => import("../views/demo/HighchartsDemo/index"),
   },
 ];
 
