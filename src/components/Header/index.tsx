@@ -1,6 +1,6 @@
 import { defineComponent, computed } from "vue";
 import "./index.scss";
-export default defineComponent({
+const Header = defineComponent({
   name: "Header",
   props: {
     height: {
@@ -21,3 +21,4 @@ export default defineComponent({
     };
   },
 });
+export default Header;
