@@ -44,6 +44,7 @@ export default defineComponent({
         username: "",
         password: "",
       },
+      width: 150,
     });
     const onSubmit = (form: form) => {
       console.info("form", form);
